@@ -30,6 +30,18 @@ namespace VideoMenuBLL.Services
             }
         }
 
+        public void CreateAll(List<VideoBO> videos)
+        {
+            using (var uow = facade.UnitOfWork)
+            {
+                foreach (var video in videos)
+                {
+                    var newVideo = uow.VideoRepository.Create(conv.Convert(video));
+                }
+                uow.Complete();
+            }
+        }
+
         public VideoBO Delete(int Id)
         {
             using (var uow = facade.UnitOfWork)

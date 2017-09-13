@@ -9,9 +9,9 @@ namespace VideoMenuDAL.Repository
 {
     class VideoRepositoryEFMemory : IVideoRepository
     {
-        InMemoryContext _context;
+        VideoMenuContext _context;
 
-        public VideoRepositoryEFMemory(InMemoryContext context)
+        public VideoRepositoryEFMemory(VideoMenuContext context)
         {
             _context = context;
         }

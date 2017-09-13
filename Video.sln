@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoMenuBLL", "VideoMenuBLL\VideoMenuBLL.csproj", "{8766E73C-CC4C-46A7-8DB9-791E01F9097E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoMenuUI", "VideoMenuUI\VideoMenuUI.csproj", "{0AC87E60-46FA-4C7A-B228-F60B0C464149}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoMenuDAL", "VideoMenuDAL\VideoMenuDAL.csproj", "{5876048F-E40C-47C3-91FE-C52711FB84FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoRest", "VideoRest\VideoRest.csproj", "{258D6FE5-82E5-4137-A930-89C574C08B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5876048F-E40C-47C3-91FE-C52711FB84FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5876048F-E40C-47C3-91FE-C52711FB84FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5876048F-E40C-47C3-91FE-C52711FB84FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258D6FE5-82E5-4137-A930-89C574C08B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258D6FE5-82E5-4137-A930-89C574C08B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258D6FE5-82E5-4137-A930-89C574C08B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258D6FE5-82E5-4137-A930-89C574C08B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
