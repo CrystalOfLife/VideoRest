@@ -8,6 +8,7 @@ namespace VideoMenuDAL
     {
         IVideoRepository VideoRepository { get; }
         IGenreRepository GenreRepository { get; }
+        IRentalRepository RentalRepository { get; }
 
         int Complete();
     }

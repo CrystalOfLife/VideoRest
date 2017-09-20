@@ -10,6 +10,7 @@ namespace VideoMenuDAL.UOW
     {
         public IVideoRepository VideoRepository { get; internal set; }
         public IGenreRepository GenreRepository { get; internal set; }
+        public IRentalRepository RentalRepository { get; internal set; }
         private VideoMenuContext context;
 
         public UnitOfWork()
@@ -17,6 +18,7 @@ namespace VideoMenuDAL.UOW
             context = new VideoMenuContext();
             VideoRepository = new VideoRepositoryEFMemory(context);
             GenreRepository = new GenreRepository(context);
+            RentalRepository = new RentalRepository(context);
         }
 
         public int Complete()

@@ -9,8 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using VideoMenuBLL;
-using VideoMenuBLL.BusinessObjects;
 using VideoMenuBLL.BusiessObjects;
+using VideoMenuBLL.BusinessObjects;
 
 namespace VideoRest
 {
@@ -36,15 +36,7 @@ namespace VideoRest
             {
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
-                facade.VideoService.Create(new VideoBO()
-                {
-                    Name = "Video 722"
-                });
-                facade.VideoService.Create(new VideoBO()
-                {
-                    Name = "Clickbait 101"
-                });
-                facade.GenreService.Create(new GenreBO()
+                var genre = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Comedy"
                 });
@@ -63,6 +55,21 @@ namespace VideoRest
                 facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Romance"
+                });
+
+                var video = facade.VideoService.Create(new VideoBO()
+                {
+                    Name = "Video 722",
+                    PricePrDay = 10,
+                    GenreId = genre.Id
+                });
+
+                for (int i = 0; i < 10000; i++)
+                facade.RentalService.Create(new RentalBO()
+                {
+                    From = DateTime.Now.AddMonths(-1),
+                    To = DateTime.Now.AddMonths(1),
+                    VideoId = video.Id
                 });
             }
 

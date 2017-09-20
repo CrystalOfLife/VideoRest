@@ -10,19 +10,26 @@ namespace VideoMenuBLL.Converters
     {
         internal Video Convert(VideoBO video)
         {
+            if (video == null) { return null; }
             return new Video()
             {
                 Id = video.Id,
-                Name = video.Name
+                Name = video.Name,
+                PricePrDay = video.PricePrDay,
+                GenreId = video.GenreId
             };
         }
 
         internal VideoBO Convert(Video video)
         {
+            if (video == null) { return null; }
             return new VideoBO()
             {
                 Id = video.Id,
-                Name = video.Name
+                Name = video.Name,
+                PricePrDay = video.PricePrDay,
+                Genre = new GenreConverter().Convert(video.Genre),
+                GenreId = video.GenreId
             };
         }
     }

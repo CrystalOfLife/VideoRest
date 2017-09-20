@@ -17,7 +17,8 @@ namespace VideoMenuDAL.Repository
             videos.Add(newVideo = new Video()
             {
                 Name = video.Name,
-                Id = Id++
+                Id = Id++,
+                PricePrDay = video.PricePrDay
             });
             return newVideo;
         }

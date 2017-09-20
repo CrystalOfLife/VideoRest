@@ -10,6 +10,7 @@ namespace VideoMenuBLL.Converters
     {
         internal Genre Convert(GenreBO genre)
         {
+            if (genre == null) { return null; }
             return new Genre()
             {
                 Id = genre.Id,
@@ -19,6 +20,7 @@ namespace VideoMenuBLL.Converters
 
         internal GenreBO Convert(Genre genre)
         {
+            if (genre == null) { return null; }
             return new GenreBO()
             {
                 Id = genre.Id,

@@ -17,7 +17,8 @@ namespace VideoMenuDAL.Context
             
         }
 
-        public DbSet<Video> Videos { get; set; }
+        public DbSet<Video> Videoes { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
     }
 }

@@ -56,7 +56,9 @@ namespace VideoMenuBLL.Services
         {
             using (var uow = facade.UnitOfWork)
             {
-                return conv.Convert(uow.VideoRepository.Get(Id));
+                var videoEntity = uow.VideoRepository.Get(Id);
+                videoEntity.Genre = uow.GenreRepository.Get(videoEntity.GenreId);
+                return conv.Convert(videoEntity);
             }
         }
 
@@ -64,7 +66,6 @@ namespace VideoMenuBLL.Services
         {
             using (var uow = facade.UnitOfWork)
             {
-                //return uow.VideoRepository.GetAll();
                 return uow.VideoRepository.GetAll().Select(conv.Convert).ToList();
             }
         }
@@ -73,14 +74,17 @@ namespace VideoMenuBLL.Services
         {
             using (var uow = facade.UnitOfWork)
             {
-                var videoFromDb = uow.VideoRepository.Get(video.Id);
-                if (videoFromDb == null)
+                var videoEntity = uow.VideoRepository.Get(video.Id);
+                if (videoEntity == null)
                 {
                     throw new InvalidOperationException("Video not found");
                 }
-                videoFromDb.Name = video.Name;
+                videoEntity.Name = video.Name;
+                videoEntity.PricePrDay = video.PricePrDay;
+                videoEntity.GenreId = video.GenreId;
                 uow.Complete();
-                return conv.Convert(videoFromDb);
+                videoEntity.Genre = uow.GenreRepository.Get(videoEntity.GenreId);
+                return conv.Convert(videoEntity);
             }
         }
     }
