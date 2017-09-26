@@ -61,7 +61,7 @@ namespace VideoRest
                 {
                     Name = "Video 722",
                     PricePrDay = 10,
-                    GenreId = genre.Id
+                    Genres = new List<GenreBO>() { genre }
                 });
 
                 for (int i = 0; i < 10000; i++)

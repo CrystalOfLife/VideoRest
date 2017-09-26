@@ -9,6 +9,6 @@ namespace VideoMenuDAL.Entities
         public int Id { get; set; }
         public String Name { get; set; }
 
-        public List<Video> Videoes { get; set; }
+        public List<VideoGenre> Videoes { get; set; }
     }
 }

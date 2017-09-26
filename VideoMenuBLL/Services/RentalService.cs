@@ -46,7 +46,6 @@ namespace VideoMenuBLL.Services
                 var rentalEntity = uow.RentalRepository.Get(Id);
                 var videoEntity = uow.VideoRepository.Get(Id);
                 rentalEntity.Video = uow.VideoRepository.Get(rentalEntity.VideoId);
-                videoEntity.Genre = uow.GenreRepository.Get(videoEntity.GenreId);
                 return conv.Convert(rentalEntity);
             }
         }

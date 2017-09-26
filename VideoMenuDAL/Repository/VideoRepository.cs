@@ -8,11 +8,11 @@ using VideoMenuDAL.Entities;
 
 namespace VideoMenuDAL.Repository
 {
-    class VideoRepositoryEFMemory : IVideoRepository
+    class VideoRepository : IVideoRepository
     {
         VideoMenuContext _context;
 
-        public VideoRepositoryEFMemory(VideoMenuContext context)
+        public VideoRepository(VideoMenuContext context)
         {
             _context = context;
         }
@@ -37,7 +37,10 @@ namespace VideoMenuDAL.Repository
 
         public List<Video> GetAll()
         {
-            return _context.Videoes.ToList();
+            return _context.Videoes
+                .Include(v => v.Genres)
+                .ThenInclude(ca => ca.Genre)
+                .ToList();
         }
     }
 }

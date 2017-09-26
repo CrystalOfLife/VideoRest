@@ -16,7 +16,6 @@ namespace VideoMenuBLL.BusinessObjects
         [MinLength(2)]
         public String Name { get; set; }
         
-        public int GenreId { get; set; }
-        public GenreBO Genre { get; set; }
+        public List<GenreBO> Genres { get; set; }
     }
 }

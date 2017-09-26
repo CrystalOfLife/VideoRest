@@ -10,8 +10,7 @@ namespace VideoMenuDAL.Entities
         public String Name { get; set; }
         public int PricePrDay { get; set; }
 
-        public int GenreId { get; set; }
-        public Genre Genre { get; set; }
+        public List<VideoGenre> Genres { get; set; }
 
         public List<Rental> Rentals { get; set; }
     }

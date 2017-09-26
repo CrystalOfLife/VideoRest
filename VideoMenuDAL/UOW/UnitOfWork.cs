@@ -16,7 +16,7 @@ namespace VideoMenuDAL.UOW
         public UnitOfWork()
         {
             context = new VideoMenuContext();
-            VideoRepository = new VideoRepositoryEFMemory(context);
+            VideoRepository = new VideoRepository(context);
             GenreRepository = new GenreRepository(context);
             RentalRepository = new RentalRepository(context);
         }
