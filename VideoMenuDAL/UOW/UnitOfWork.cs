@@ -16,6 +16,7 @@ namespace VideoMenuDAL.UOW
         public UnitOfWork()
         {
             context = new VideoMenuContext();
+            context.Database.EnsureCreated();
             VideoRepository = new VideoRepository(context);
             GenreRepository = new GenreRepository(context);
             RentalRepository = new RentalRepository(context);

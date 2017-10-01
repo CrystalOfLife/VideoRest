@@ -12,7 +12,7 @@ namespace VideoMenuBLL.Services
     class VideoService : IVideoService
     {
         VideoConverter conv = new VideoConverter();
-
+        GenreConverter gConv = new GenreConverter();
         DALFacade facade;
 
         public VideoService(DALFacade facade)
@@ -56,8 +56,17 @@ namespace VideoMenuBLL.Services
         {
             using (var uow = facade.UnitOfWork)
             {
-                var videoEntity = uow.VideoRepository.Get(Id);
-                return conv.Convert(videoEntity);
+                var vid = conv.Convert(uow.VideoRepository.Get(Id));
+
+                /*vid.Genres = vid.GenreIds?
+                    .Select(id => gConv.Convert(uow.GenreRepository.Get(id)))
+                    .ToList();*/
+
+                vid.Genres = uow.GenreRepository.GetAllById(vid.GenreIds)
+                    .Select(g => gConv.Convert(g))
+                    .ToList();
+
+                return vid;
             }
         }
 
@@ -81,7 +90,20 @@ namespace VideoMenuBLL.Services
                 var videoUpdated = conv.Convert(video);
                 videoEntity.Name = videoUpdated.Name;
                 videoEntity.PricePrDay = videoUpdated.PricePrDay;
-                videoEntity.Genres = videoUpdated.Genres;
+
+                videoEntity.Genres.RemoveAll(
+                    ca => !videoUpdated.Genres.Exists(
+                        g => g.GenreId == ca.GenreId &&
+                        g.VideoId == ca.VideoId));
+
+                videoUpdated.Genres.RemoveAll(
+                    ca => videoEntity.Genres.Exists(
+                        g => g.GenreId == ca.GenreId &&
+                        g.VideoId == ca.VideoId));
+
+                videoEntity.Genres.AddRange(
+                    videoUpdated.Genres);
+
                 uow.Complete();
                 return conv.Convert(videoEntity);
             }

@@ -36,23 +36,23 @@ namespace VideoRest
             {
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
-                var genre = facade.GenreService.Create(new GenreBO()
+                /*var genre = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Comedy"
                 });
-                facade.GenreService.Create(new GenreBO()
+                var genre2 = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Horror"
                 });
-                facade.GenreService.Create(new GenreBO()
+                var genre3 = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Sci-Fi"
                 });
-                facade.GenreService.Create(new GenreBO()
+                var genre4 = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Fantasy"
                 });
-                facade.GenreService.Create(new GenreBO()
+                var genre5 = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Romance"
                 });
@@ -61,16 +61,16 @@ namespace VideoRest
                 {
                     Name = "Video 722",
                     PricePrDay = 10,
-                    Genres = new List<GenreBO>() { genre }
+                    GenreIds = new List<int>() { genre.Id, genre4.Id }
                 });
 
-                for (int i = 0; i < 10000; i++)
+                for (int i = 0; i < 3; i++)
                 facade.RentalService.Create(new RentalBO()
                 {
                     From = DateTime.Now.AddMonths(-1),
                     To = DateTime.Now.AddMonths(1),
                     VideoId = video.Id
-                });
+                });*/
             }
 
             app.UseMvc();

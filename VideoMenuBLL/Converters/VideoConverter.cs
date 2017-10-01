@@ -23,8 +23,8 @@ namespace VideoMenuBLL.Converters
             return new Video()
             {
                 Id = video.Id,
-                Genres = video.Genres?.Select(g => new VideoGenre(){
-                    GenreId = g.Id,
+                Genres = video.GenreIds?.Select(gId => new VideoGenre(){
+                    GenreId = gId,
                     VideoId = video.Id
                 }).ToList(),
                 Name = video.Name,
@@ -38,10 +38,7 @@ namespace VideoMenuBLL.Converters
             return new VideoBO()
             {
                 Id = video.Id,
-                Genres = video.Genres?.Select(g => new GenreBO() {
-                    Id = g.VideoId,
-                    Name = g.Genre?.Name
-                }).ToList(),
+                GenreIds = video.Genres?.Select(g => g.GenreId).ToList(),
                 Name = video.Name,
                 PricePrDay = video.PricePrDay
             };

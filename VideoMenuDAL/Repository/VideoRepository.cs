@@ -32,14 +32,13 @@ namespace VideoMenuDAL.Repository
 
         public Video Get(int Id)
         {
-            return _context.Videoes.FirstOrDefault(x => x.Id == Id);
+            return _context.Videoes.Include(v => v.Genres).FirstOrDefault(x => x.Id == Id);
         }
 
         public List<Video> GetAll()
         {
             return _context.Videoes
                 .Include(v => v.Genres)
-                .ThenInclude(ca => ca.Genre)
                 .ToList();
         }
     }
