@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VideoMenuBLL.BusinessObjects;
+using Microsoft.AspNetCore.Cors;
 
 namespace VideoRest.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VideoMenuBLL;
 using VideoMenuBLL.BusinessObjects;
+using Microsoft.AspNetCore.Cors;
 
 namespace VideoRest.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class VideoesController : Controller
