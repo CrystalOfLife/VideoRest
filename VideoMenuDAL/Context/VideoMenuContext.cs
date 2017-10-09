@@ -12,18 +12,18 @@ namespace VideoMenuDAL.Context
             new DbContextOptionsBuilder<VideoMenuContext>()
                 .UseInMemoryDatabase("TheDB").Options;
 
-        /*public VideoMenuContext() : base(options)
+        public VideoMenuContext() : base(options)
         {
             
-        }*/
+        }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"Server=tcp:video-nul-easv.database.windows.net,1433;Initial Catalog=CS2017_VideoMenu;Persist Security Info=False;User ID=Nicolai;Password=FXA72haw;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
-        }
+        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
