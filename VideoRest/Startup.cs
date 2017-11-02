@@ -43,7 +43,7 @@ namespace VideoRest
             {
                 app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
-                /*var genre = facade.GenreService.Create(new GenreBO()
+                var genre = facade.GenreService.Create(new GenreBO()
                 {
                     Name = "Comedy"
                 });
@@ -77,7 +77,7 @@ namespace VideoRest
                     From = DateTime.Now.AddMonths(-1),
                     To = DateTime.Now.AddMonths(1),
                     VideoId = video.Id
-                });*/
+                });
             }
 
             app.UseMvc();
